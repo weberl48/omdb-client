@@ -8,11 +8,13 @@ xhr.addEventListener('load', function () {
   var response = xhr.response;
   var responseData = JSON.parse(response);
 
-  var p = document.createElement('p');
-  p.innerHTML = responseData.Search[0].Title;
-  document.body.appendChild(p);
 
-  console.log(responseData);
+  for (var i = 0; i < responseData.Search.length; i++) {
+    var p = document.createElement('p');
+    responseData.Search[i];
+    p.innerHTML = responseData.Search[i].Title;
+    document.body.appendChild(p);
+}
 
 });
 xhr.send();

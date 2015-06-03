@@ -1,21 +1,14 @@
-
-
-
-
-var query = document.location.search;
+var omdbQuery = "?i=tt0095690&plot=short&r=json"
+// var omdbQuery = document.location.search;
 var objectNew = {}
-var arrayNew = []
-var key , value
-query = query.replace("?" , " ")
-var arrayNew = query.split(/[&=]/)
+omdbQuery = omdbQuery.replace("?" , " ")
+omdbQuery = omdbQuery.split("&")
 
-for ( i = 0; i < arrayNew.length; i++) {
-  if (i % 2 == 0 ) {
-    key = arrayNew[i];
-    objectNew[key] = arrayNew[i+ 1];
-  }
-  console.log(objectNew);
+for (var i = 0; i < omdbQuery.length; i++) {
+  var newArray = omdbQuery[i].split('=');
+  objectNew[newArray[0]] = newArray[1];
+  ;
+
 }
 
-
-//notes
+var omdbID = objectNew.i;

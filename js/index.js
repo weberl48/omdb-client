@@ -11,12 +11,11 @@ xhr.addEventListener('load', function () {
   var responseData = JSON.parse(response);
   //get all the titles
   for (var i = 0; i < responseData.Search.length; i++) {
+    var a = document.createElement('a'); // creates an anchor element
+    a.innerHTML = responseData.Search[i].Title; // sets the <a>Titles[] </a>
 
-    var a = document.createElement('a');
-    a.innerHTML = responseData.Search[i].Title;
-    a.href = '/show.html?';
-
-
+    a.href = '/movie.html?' ; //sets the href of the a element to
+    console.log(responseData.Search[i].imdbID);
     var p = document.createElement('p');
     p.appendChild(a);
     document.body.appendChild(p);

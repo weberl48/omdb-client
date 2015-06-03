@@ -14,7 +14,7 @@ xhr.addEventListener('load', function () {
     var a = document.createElement('a'); // creates an anchor element
     a.innerHTML = responseData.Search[i].Title; // sets the <a>Titles[] </a>
 
-    a.href = '/movie.html?' ; //sets the href of the a element to
+    a.href = '/movie.html?i=' ; //sets the href of the a element to
     console.log(responseData.Search[i].imdbID);
     var p = document.createElement('p');
     p.appendChild(a);

@@ -1,9 +1,20 @@
-var h1 = document.createElement('h1');
-h1.innerHTML = "OMBD Movies About Pizza";
-document.body.appendChild(h1);
+
 // sending the request
+
+var button = document.getElementById('button');
+var text = document.getElementById('input')
+button.addEventListener('click', function (){
+  var s = text.value;
+  var h1 = document.createElement('h1');
+  h1.innerHTML = "OMBD Movies About " + s;
+  document.body.appendChild(h1);
+
+
+
+
+
 var xhr = new XMLHttpRequest();
-xhr.open('get', "http://www.omdbapi.com/?s=pizza");
+xhr.open('get', "http://www.omdbapi.com/?s=" + s);
 xhr.addEventListener('load', function () {
   //recieving the request
   var response = xhr.response;
@@ -13,8 +24,9 @@ xhr.addEventListener('load', function () {
   for (var i = 0; i < responseData.Search.length; i++) {
     var a = document.createElement('a'); // creates an anchor element
     a.innerHTML = responseData.Search[i].Title; // sets the <a>Titles[] </a>
-
-    a.href = '/movie.html?i=' ; //sets the href of the a element to
+    var x = responseData.Search[i]
+    id = responseData.Search.imdbID
+    a.href = '/movie.html?i=' + id  ; //sets the href of the a element to
     console.log(responseData.Search[i].imdbID);
     var p = document.createElement('p');
     p.appendChild(a);
@@ -23,3 +35,4 @@ xhr.addEventListener('load', function () {
 
 });
 xhr.send();
+});

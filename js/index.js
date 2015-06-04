@@ -1,4 +1,8 @@
-
+// $("#input").keyup(function(event){
+//     if(event.keyCode == 13){
+//         $("#button").click();
+//     }
+// });
 // sending the request
 
 var button = document.getElementById('button');
